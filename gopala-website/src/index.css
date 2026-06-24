@@ -1,6 +1,61 @@
 @import "tailwindcss";
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background-color: #FF7A00;
+    color: white;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#FF7A00] hover:bg-orange-600 text-white px-8 py-4 rounded-2xl font-bold shadow-2xl transition-all duration-300 hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-white text-white px-8 py-4 rounded-2xl font-bold hover:bg-white hover:text-[#071A52] transition-all duration-300;
+  }
+
+  .section-heading {
+    @apply text-5xl font-bold text-[#0B3B8C] mt-4 leading-tight;
+  }
+
+  .section-subheading {
+    @apply uppercase tracking-widest text-sky-600 font-semibold;
+  }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl;
+  }
+
+  .premium-card {
+    @apply bg-white rounded-3xl shadow-2xl hover:shadow-2xl transition-all duration-300;
+  }
+
+  .icon-box {
+    @apply w-20 h-20 rounded-2xl bg-[#0B3B8C] text-white flex items-center justify-center text-3xl mb-6;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#071A52] to-[#0B3B8C] bg-clip-text text-transparent;
+  }
 }
