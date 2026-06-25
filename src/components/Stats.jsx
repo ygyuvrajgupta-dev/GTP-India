@@ -38,7 +38,7 @@ function CountUp({ target, suffix = "", duration = 2 }) {
 }
 
 const stats = [
-  { number: "17", suffix: "+", label: "Years Experience", icon: "🏆" },
+  { number: "35", suffix: "+", label: "Years Experience", icon: "🏆" },
   { number: "500", suffix: "+", label: "Projects Completed", icon: "🏗️" },
   { number: "100", suffix: "+", label: "Industrial Clients", icon: "🤝" },
   { number: "24/7", suffix: "", label: "Customer Support", icon: "📞" },

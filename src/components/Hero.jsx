@@ -33,7 +33,7 @@ const particles = Array.from({ length: 12 }, (_, i) => ({
 }));
 
 const stats = [
-  { number: "17+", label: "Years Experience" },
+  { number: "35+", label: "Years Experience" },
   { number: "500+", label: "Projects Completed" },
   { number: "100+", label: "Industrial Clients" },
   { number: "24/7", label: "Customer Support" },

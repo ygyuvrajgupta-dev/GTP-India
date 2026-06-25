@@ -146,7 +146,7 @@ export default function About() {
               animate={{ y: [0, 8, 0] }}
               className="absolute -bottom-6 -left-6 z-10 bg-[#071A52] text-white rounded-2xl px-5 py-3 shadow-2xl text-center"
             >
-              <div className="text-2xl font-bold">17+</div>
+              <div className="text-2xl font-bold">35+</div>
               <div className="text-xs font-semibold">Yrs. Experience</div>
             </motion.div>
 
