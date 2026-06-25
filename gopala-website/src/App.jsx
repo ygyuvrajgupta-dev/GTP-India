@@ -12,39 +12,12 @@ import ScrollTop from "./components/ScrollTop";
 
 function App() {
   return (
-    <div className="bg-slate-50 overflow-x-hidden">
-
-      {/* Navigation */}
+    <div className="bg-slate-50 overflow-x-hidden" style={{ minHeight: '100vh' }}>
+      {/* <h1 className="text-4xl font-bold text-[#0B3B8C] p-10">TEST - Website is working!</h1> */}
       <Navbar />
-
-      {/* Hero Section */}
       <Hero />
-
-      {/* About Company */}
       <About />
-
-      {/* Statistics */}
       <Stats />
-
-      {/* Products */}
-      <Products />
-
-      {/* Services */}
-      <Services />
-
-      {/* Clients */}
-      <Clients />
-
-      {/* Contact */}
-      <Contact />
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Floating Buttons */}
-      <WhatsAppButton />
-      <ScrollTop />
-
     </div>
   );
 }

@@ -1,26 +1,19 @@
-import { motion } from "framer-motion";
-import CountUp from "react-countup";
-
 export default function Stats() {
   const stats = [
     {
-      number: 17,
-      suffix: "+",
+      number: "17+",
       title: "Years Experience",
     },
     {
-      number: 500,
-      suffix: "+",
+      number: "500+",
       title: "Projects Completed",
     },
     {
-      number: 100,
-      suffix: "+",
+      number: "100+",
       title: "Industrial Clients",
     },
     {
-      number: 24,
-      suffix: "/7",
+      number: "24/7",
       title: "Customer Support",
     },
   ];
@@ -41,37 +34,20 @@ export default function Stats() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         <div className="text-center mb-16">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="uppercase tracking-widest text-[#FF7A00] font-semibold"
-          >
+          <p className="uppercase tracking-widest text-[#FF7A00] font-semibold">
             Our Achievements
-          </motion.p>
+          </p>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-5xl font-bold mt-4"
-          >
+          <h2 className="text-5xl font-bold mt-4">
             Numbers That Reflect Our Excellence
-          </motion.h2>
+          </h2>
         </div>
 
         <div className="grid md:grid-cols-4 gap-8">
 
           {stats.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, y: -10 }}
               className="
                 bg-white/10
                 backdrop-blur-lg
@@ -86,17 +62,13 @@ export default function Stats() {
               "
             >
               <h2 className="text-5xl font-bold text-[#FF7A00]">
-                <CountUp
-                  end={item.number}
-                  duration={3}
-                />
-                {item.suffix}
+                {item.number}
               </h2>
 
               <p className="mt-5 text-lg text-gray-200">
                 {item.title}
               </p>
-            </motion.div>
+            </div>
           ))}
 
         </div>
