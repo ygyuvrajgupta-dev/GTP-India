@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Marquee from "react-fast-marquee";
 
 export default function Clients() {
 
@@ -14,8 +13,11 @@ export default function Clients() {
     "Superhouse Group",
   ];
 
+  // Duplicate list so the scroll loop is seamless
+  const doubled = [...clients, ...clients];
+
   return (
-    <section id="clients" className="py-24 bg-white">
+    <section id="clients" className="py-24 bg-white overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -43,24 +45,26 @@ export default function Clients() {
 
         </div>
 
-        <Marquee speed={50} pauseOnHover gradient={false}>
+      </div>
 
-          {clients.map((client, index) => (
-
-            <motion.div
+      {/* Marquee track */}
+      <div className="relative w-full overflow-hidden">
+        <div
+          className="flex gap-6 w-max"
+          style={{
+            animation: "marquee 30s linear infinite",
+          }}
+        >
+          {doubled.map((client, index) => (
+            <div
               key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, y: -5 }}
               className="
-                mx-6
                 bg-white
                 shadow-2xl
                 rounded-3xl
                 w-64
                 h-40
+                flex-shrink-0
                 flex
                 items-center
                 justify-center
@@ -69,8 +73,6 @@ export default function Clients() {
                 text-[#0B3B8C]
                 border-2
                 border-gray-100
-                transition-all
-                duration-300
               "
             >
               <div className="text-center">
@@ -78,13 +80,17 @@ export default function Clients() {
                 <div>LOGO PLACEHOLDER</div>
                 <div className="text-sm text-gray-500 mt-1">{client}</div>
               </div>
-            </motion.div>
-
+            </div>
           ))}
-
-        </Marquee>
-
+        </div>
       </div>
+
+      <style>{`
+        @keyframes marquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
 
     </section>
   );

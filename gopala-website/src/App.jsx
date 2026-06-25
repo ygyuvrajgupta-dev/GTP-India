@@ -18,6 +18,13 @@ function App() {
       <Hero />
       <About />
       <Stats />
+      <Products />
+      <Services />
+      <Clients />
+      <Contact />
+      <Footer />
+      <WhatsAppButton />
+      <ScrollTop />
     </div>
   );
 }

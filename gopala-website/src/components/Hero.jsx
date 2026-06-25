@@ -1,24 +1,22 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
 
 export default function Hero() {
+  useEffect(() => {
+    document.title = "Gopala Thermopacks India Pvt. Ltd. | Cold Storage Solutions";
+    const desc = document.querySelector('meta[name="description"]');
+    if (desc) {
+      desc.setAttribute("content", "Manufacturer, Exporter and Service Provider of Cold Storage Plants, Industrial Refrigeration Systems, Compressors and Cooling Solutions.");
+    } else {
+      const meta = document.createElement("meta");
+      meta.name = "description";
+      meta.content = "Manufacturer, Exporter and Service Provider of Cold Storage Plants, Industrial Refrigeration Systems, Compressors and Cooling Solutions.";
+      document.head.appendChild(meta);
+    }
+  }, []);
+
   return (
     <>
-      <Helmet>
-        <title>
-          Gopala Thermopacks India Pvt. Ltd. | Cold Storage Solutions
-        </title>
-
-        <meta
-          name="description"
-          content="Manufacturer, Exporter and Service Provider of Cold Storage Plants, Industrial Refrigeration Systems, Compressors and Cooling Solutions."
-        />
-
-        <meta
-          name="keywords"
-          content="Cold Storage Plant, Industrial Refrigeration, Bitzer Compressor, Ammonia Compressor, Cooling Tower"
-        />
-      </Helmet>
 
       <section
         id="home"
