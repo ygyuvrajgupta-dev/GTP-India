@@ -26,3 +26,19 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #FF7A00;
   color: white;
 }
+
+/* Subtle dot grid pattern for light sections */
+.bg-pattern-dots {
+  background-color: #f8fafc;
+  background-image: radial-gradient(circle, #cbd5e1 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Subtle line grid pattern for white sections */
+.bg-pattern-grid {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+    linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+  background-size: 40px 40px;
+}

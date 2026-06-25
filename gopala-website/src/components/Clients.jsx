@@ -1,94 +1,120 @@
 import { motion } from "framer-motion";
 
+const clients = [
+  { name: "Britannia", emoji: "🍞" },
+  { name: "NTPC", emoji: "⚡" },
+  { name: "Indian Oil", emoji: "🛢️" },
+  { name: "Parle", emoji: "🍪" },
+  { name: "Aditya Birla", emoji: "🏢" },
+  { name: "Hawkins", emoji: "🍳" },
+  { name: "Indian Railways", emoji: "🚂" },
+  { name: "Superhouse Group", emoji: "🏭" },
+  { name: "Indian Air Force", emoji: "✈️" },
+];
+
+const doubled = [...clients, ...clients];
+
 export default function Clients() {
-
-  const clients = [
-    "Britannia",
-    "NTPC",
-    "Indian Oil",
-    "Parle",
-    "Aditya Birla",
-    "Hawkins",
-    "Indian Railways",
-    "Superhouse Group",
-  ];
-
-  // Duplicate list so the scroll loop is seamless
-  const doubled = [...clients, ...clients];
-
   return (
-    <section id="clients" className="py-24 bg-white overflow-hidden">
+    <section id="clients" className="py-28 bg-pattern-grid overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-6">
 
+        {/* Heading */}
         <div className="text-center mb-16">
-
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="uppercase tracking-widest text-[#FF7A00] font-semibold"
+            className="text-[#FF7A00] font-bold uppercase tracking-widest text-sm mb-4 flex items-center justify-center gap-2"
           >
+            <span className="w-8 h-0.5 bg-[#FF7A00]" />
             Our Clients
+            <span className="w-8 h-0.5 bg-[#FF7A00]" />
           </motion.p>
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ delay: 0.15, duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-5xl font-bold text-[#0B3B8C] mt-4"
+            className="text-4xl md:text-5xl font-bold text-[#0B3B8C]"
           >
-            Trusted By Industry Leaders
+            Trusted By{" "}
+            <span className="text-[#FF7A00]">Industry</span>{" "}
+            Leaders
           </motion.h2>
 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25 }}
+            viewport={{ once: true }}
+            className="text-gray-500 mt-4 text-lg"
+          >
+            Proudly serving India's most recognised organisations
+          </motion.p>
         </div>
 
       </div>
 
-      {/* Marquee track */}
-      <div className="relative w-full overflow-hidden">
+      {/* Marquee row 1 — left */}
+      <div className="relative w-full overflow-hidden mb-5">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
         <div
-          className="flex gap-6 w-max"
-          style={{
-            animation: "marquee 30s linear infinite",
-          }}
+          className="flex gap-5 w-max"
+          style={{ animation: "marquee-left 35s linear infinite" }}
         >
-          {doubled.map((client, index) => (
-            <div
-              key={index}
-              className="
-                bg-white
-                shadow-2xl
-                rounded-3xl
-                w-64
-                h-40
-                flex-shrink-0
-                flex
-                items-center
-                justify-center
-                text-xl
-                font-bold
-                text-[#0B3B8C]
-                border-2
-                border-gray-100
-              "
+          {doubled.map((client, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.06, y: -4, boxShadow: "0 20px 40px rgba(11,59,140,0.15)" }}
+              className="bg-white shadow-md rounded-2xl w-52 h-28 flex-shrink-0 flex items-center justify-center border border-gray-100 cursor-default transition-shadow duration-300"
             >
               <div className="text-center">
-                <div className="text-3xl mb-2">🏢</div>
-                <div>LOGO PLACEHOLDER</div>
-                <div className="text-sm text-gray-500 mt-1">{client}</div>
+                <div className="text-3xl mb-1">{client.emoji}</div>
+                <div className="text-sm font-bold text-[#0B3B8C]">{client.name}</div>
               </div>
-            </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Marquee row 2 — right (reverse) */}
+      <div className="relative w-full overflow-hidden">
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+        <div
+          className="flex gap-5 w-max"
+          style={{ animation: "marquee-right 35s linear infinite" }}
+        >
+          {[...doubled].reverse().map((client, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.06, y: -4 }}
+              className="bg-white shadow-md rounded-2xl w-52 h-28 flex-shrink-0 flex items-center justify-center border border-gray-100 cursor-default"
+            >
+              <div className="text-center">
+                <div className="text-3xl mb-1">{client.emoji}</div>
+                <div className="text-sm font-bold text-[#0B3B8C]">{client.name}</div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>
 
       <style>{`
-        @keyframes marquee {
+        @keyframes marquee-left {
           0%   { transform: translateX(0); }
           100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-right {
+          0%   { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
         }
       `}</style>
 
