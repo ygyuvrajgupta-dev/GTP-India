@@ -150,42 +150,16 @@ export default function About() {
               <div className="text-xs font-semibold">Yrs. Experience</div>
             </motion.div>
 
-            {/* Main image box */}
-            <div className="h-[520px] rounded-3xl bg-gradient-to-br from-[#071A52] via-[#0B3B8C] to-[#071A52] flex items-center justify-center shadow-2xl relative overflow-hidden">
-
-              <div className="absolute inset-0" style={{
-                backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)",
-                backgroundSize: "28px 28px",
-              }} />
-
-              {/* Animated circles */}
-              <motion.div
-                animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute inset-0 flex items-center justify-center"
-              >
-                <div className="w-64 h-64 border border-white/10 rounded-full" />
-              </motion.div>
-              <motion.div
-                animate={{ scale: [1.2, 1, 1.2], opacity: [0.1, 0.2, 0.1] }}
-                transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                className="absolute inset-0 flex items-center justify-center"
-              >
-                <div className="w-40 h-40 border border-white/10 rounded-full" />
-              </motion.div>
-
-              <div className="text-center relative z-10 p-8">
-                <motion.div
-                  animate={{ rotate: [0, 5, -5, 0] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                  className="text-6xl mb-4"
-                >
-                  🏭
-                </motion.div>
-                <h2 className="text-3xl font-bold text-white">IMAGE PLACEHOLDER</h2>
-                <p className="mt-3 text-gray-300">Company / Factory Image</p>
+            {/* Main image */}
+            <div className="about-image-wrap h-[520px] rounded-3xl relative">
+              <div className="h-full rounded-3xl overflow-hidden relative">
+                <img
+                  src={`${import.meta.env.BASE_URL}about/company-image.png`}
+                  alt="Gopala Thermopacks factory"
+                  className="w-full h-full object-cover about-image"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071A52]/40 via-transparent to-[#0B3B8C]/10 pointer-events-none" />
               </div>
-
             </div>
 
           </motion.div>

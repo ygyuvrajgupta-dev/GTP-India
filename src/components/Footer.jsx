@@ -129,14 +129,6 @@ export default function Footer() {
                 +91 7232922333
               </motion.a>
 
-              <motion.a
-                href="tel:+919628665656"
-                whileHover={{ x: 4 }}
-                className="flex gap-3 text-gray-400 hover:text-white transition-colors duration-300"
-              >
-                <FaPhoneAlt className="mt-0.5 text-[#FF7A00] flex-shrink-0" />
-                +91 9628665656
-              </motion.a>
 
               <motion.a
                 href="mailto:gopalatharmopack@gmail.com"
