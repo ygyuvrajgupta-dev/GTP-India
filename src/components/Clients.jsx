@@ -1,17 +1,18 @@
 import { motion } from "framer-motion";
 
-const clients = [
-  { name: "Britannia", emoji: "🍞" },
-  { name: "NTPC", emoji: "⚡" },
-  { name: "Indian Oil", emoji: "🛢️" },
-  { name: "Parle", emoji: "🍪" },
-  { name: "Aditya Birla", emoji: "🏢" },
-  { name: "Hawkins", emoji: "🍳" },
-  { name: "Indian Railways", emoji: "🚂" },
-  { name: "Superhouse Group", emoji: "🏭" },
-  { name: "Indian Air Force", emoji: "✈️" },
-];
+const clientLogo = (file) => `${import.meta.env.BASE_URL}clients/${file}`;
 
+const clients = [
+  { name: "Britannia", logo: clientLogo("britannia.png") },
+  { name: "NTPC", logo: clientLogo("ntpc.png") },
+  { name: "Indian Oil", logo: clientLogo("indian-oil.png") },
+  { name: "Parle", logo: clientLogo("parle.png") },
+  { name: "Aditya Birla", logo: clientLogo("aditya-birla.png") },
+  { name: "Hawkins", logo: clientLogo("hawkins.png") },
+  { name: "Indian Railways", logo: clientLogo("indian-railways.png") },
+  { name: "Superhouse Group", logo: clientLogo("superhouse.png") },
+  { name: "Indian Air Force", logo: clientLogo("Indian_Air_Force.png") },
+];
 const doubled = [...clients, ...clients];
 
 export default function Clients() {
@@ -75,7 +76,11 @@ export default function Clients() {
               className="bg-white shadow-md rounded-2xl w-52 h-28 flex-shrink-0 flex items-center justify-center border border-gray-100 cursor-default transition-shadow duration-300"
             >
               <div className="text-center">
-                <div className="text-3xl mb-1">{client.emoji}</div>
+                <img
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  className="h-12 w-auto max-w-[120px] object-contain mb-1 mx-auto"
+                />
                 <div className="text-sm font-bold text-[#0B3B8C]">{client.name}</div>
               </div>
             </motion.div>
@@ -99,7 +104,11 @@ export default function Clients() {
               className="bg-white shadow-md rounded-2xl w-52 h-28 flex-shrink-0 flex items-center justify-center border border-gray-100 cursor-default"
             >
               <div className="text-center">
-                <div className="text-3xl mb-1">{client.emoji}</div>
+                <img
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  className="h-12 w-auto max-w-[120px] object-contain mb-1 mx-auto"
+                />
                 <div className="text-sm font-bold text-[#0B3B8C]">{client.name}</div>
               </div>
             </motion.div>
