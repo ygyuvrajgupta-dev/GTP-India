@@ -52,20 +52,31 @@ export default function Navbar() {
       </motion.div>
 
       {/* Main Navbar */}
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <nav className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
 
         {/* Logo */}
-        <motion.div
+        <motion.a
+          href="#home"
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300 }}
+          className="flex items-center gap-3.5"
         >
-          <h1 className="text-2xl font-bold text-[#071A52] leading-tight">
-            Gopala Thermopacks
-          </h1>
-          <p className="text-[#0B3B8C] text-xs tracking-widest uppercase">
-            India Pvt. Ltd.
-          </p>
-        </motion.div>
+          <div className="logo-glow-wrap">
+            <img
+              src={`${import.meta.env.BASE_URL}Logo_gtp.png`}
+              alt="Gopala Thermopacks"
+              className="h-[4.5rem] w-[4.5rem] object-contain logo-glow"
+            />
+          </div>
+          <div>
+            <h1 className="text-2xl font-bold text-[#071A52] leading-tight">
+              Gopala Thermopacks
+            </h1>
+            <p className="text-[#0B3B8C] text-xs tracking-widest uppercase">
+              India Pvt. Ltd.
+            </p>
+          </div>
+        </motion.a>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 text-base font-semibold">

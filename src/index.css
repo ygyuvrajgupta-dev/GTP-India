@@ -42,3 +42,44 @@ h1, h2, h3, h4, h5, h6 {
     linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
   background-size: 40px 40px;
 }
+
+/* GTP logo glow — cyan-blue + orange dual-tone */
+.logo-glow-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: auto;
+  width: auto;
+}
+
+.logo-glow-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(0, 210, 255, 0.55) 0%, transparent 55%),
+    radial-gradient(circle at 65% 70%, rgba(255, 122, 0, 0.55) 0%, transparent 55%);
+  filter: blur(12px);
+  opacity: 0.9;
+  z-index: 0;
+  animation: logo-glow-pulse 3s ease-in-out infinite;
+}
+
+.logo-glow {
+  position: relative;
+  z-index: 1;
+  filter:
+    drop-shadow(0 0 5px rgba(0, 200, 255, 0.85))
+    drop-shadow(0 0 12px rgba(0, 140, 255, 0.55))
+    drop-shadow(0 0 7px rgba(255, 140, 0, 0.75))
+    drop-shadow(0 0 18px rgba(255, 100, 0, 0.4));
+}
+
+
+@keyframes logo-glow-pulse {
+  0%, 100% { opacity: 0.75; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
