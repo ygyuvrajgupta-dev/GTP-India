@@ -32,7 +32,7 @@ export default function Contact() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: "YOUR_DUMMY_API_KEY_HERE", // Replace with real key from web3forms.com
+          access_key: "3966397f-4441-476c-b8d4-a0e9539e802f",
           subject: `New Quote Request from ${formData.name}`,
           from_name: formData.name,
           ...formData,
